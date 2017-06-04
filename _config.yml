@@ -17,7 +17,7 @@ url: "http://markus.co" # the base hostname & protocol for your site
 twitter_username:
 github_username:  "markusleh"
 google_analytics: "UA-47483361-2"
-
+linkedin_username: "markus.lehtonen"
 # Build settings
 markdown: kramdown
 kramdown:
