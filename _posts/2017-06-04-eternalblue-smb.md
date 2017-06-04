@@ -9,7 +9,7 @@ excerpt: Before Microsoft patching it, SMB version 1 was vulnerable to a buffer 
 ![]({{site.baseurl}}/assets/img/eternal/eternal.png)
 _Code comment from the leaked source code of Windows NT4 which contained the vulnerability_
 
-This post is a tale of my journey into trying to fully understand the vulnerability behind WanaCry(pt).
+This post is about trying to fully understand the vulnerability behind WanaCry(pt).
 
 This post consists of the following parts.
 
