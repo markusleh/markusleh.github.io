@@ -24,7 +24,7 @@ and the other one is by a Github user @worawit [[2](#sources)]. Worawit's code i
 
 ### The exploit
 
-Before Microsoft patching it, SMB version 1 was vulnerable to a buffer overflow attack [[1](#sources)]. The vulnerability is exploitable when a malformed Trans2 request is sent to the server which enables the attacker to overwrite another part of the memory [[3](#sources)]. The goal of the attacker (and how NSA did it) would be to overwrite some useful memory portion. This memory area in this attack is the buffer of another SMB connection which in this case enables arbitrary write and exection of shellcode in the Hardware abstraction layer's (HAL) memory address.
+Before Microsoft patching it, SMB version 1 was vulnerable to a buffer overflow attack. The vulnerability is exploitable when a malformed Trans2 request is sent to the server which enables the attacker to overwrite another part of the memory. The goal of the attacker (and how NSA did it) would be to overwrite some useful memory portion and in this attack it is the buffer of another SMB connection which enables arbitrary write and execution of shellcode in the Hardware abstraction layer's (HAL) memory address. [[1](#sources)][[3](#sources)]
 The exploit is happening in non-paged pool memory which the SMB server allocates for the large requests sent to it. This is quite important information as we will soon see.
 
 ### Finding the connections
