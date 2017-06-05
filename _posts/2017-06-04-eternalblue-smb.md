@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Memory forensics of Eternalblue
+title:  Memory analysis of Eternalblue
 category: memory-forensics
 description: Techinal and memory forensics dive into the Eternalblue exploit that uses SMB v1 vulnerability.
 picture: /assets/img/eternal/eternal.png
