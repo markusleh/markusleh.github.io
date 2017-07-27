@@ -17,7 +17,8 @@ IdP: identity provider
 idp.example.com in this post
 
 # Keycloak (IdP)
-1. Download and configure Keycloak (Ubuntu 16.04)
+
+## 1. Download and configure Keycloak (Ubuntu 16.04)
 
 1.1 Install Java
 ```
@@ -97,7 +98,7 @@ sudo service keycloak start
 ```
 Keycloak should now be running
 
-#2.0 Configure apache (IdP)
+## 2. Configure apache (IdP)
 
 2.1 Install apache2
 ```
