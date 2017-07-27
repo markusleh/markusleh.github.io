@@ -7,11 +7,13 @@ excerpt: This post consists of configuring Keycloak behind Apache reverse proxy 
 ---
 
 This post consists of the following parts:
+
 1. Downloading and configuring Keycloak (IdP)
 2. Downloading and configuring Apache2 to act as a reverse proxy in front of Keycloak (IdP)
 3. Bonus: Configuring Let's encrypt (IdP)
 
 IdP: identity provider
+
 idp.example.com in this post
 
 # Keycloak (IdP)
@@ -46,7 +48,8 @@ In the next step we configure HTTPS with Apache2 as a reverse proxy in front of 
  for how to configure HTTPS in Keycloak.
  
 1.5 Configure Keycloak for Apache (or any reverse proxy)
- Set the following parameters in `/opt/keycloak/standalone/configuration/standalone.xml`
+
+Set the following parameters in `/opt/keycloak/standalone/configuration/standalone.xml`
 ```
 <subsystem xmlns="urn:jboss:domain:undertow:3.0">
   ...
@@ -61,6 +64,7 @@ In the next step we configure HTTPS with Apache2 as a reverse proxy in front of 
   ...
 ```
 1.6 Set up Keycloak as a service
+
 Download the service scripts from:
 https://gist.github.com/markusleh/eb2f1c112b71608c56b1a801f0f70f78
 
@@ -93,13 +97,14 @@ sudo service keycloak start
 ```
 Keycloak should now be running
 
-2.0 Configure apache (IdP)
+#2.0 Configure apache (IdP)
 
 2.1 Install apache2
 ```
 sudo apt install apache2
 ```
 2.2 Configure certificate for apache
+
 Visit https://certbot.eff.org/
 For instructions how to set up Let's encrypt. They have a great tool and a guide so I won't post it here. They make sure it's relevant 
 and updated for all environments.
@@ -107,9 +112,7 @@ and updated for all environments.
 2.3. Configure Apache to act as a reverse proxy
 
 Put the following in 
-/etc/apache2/sites-available/000-default-le-ssl.conf
-
-Under <VirtualHost *:443>
+`/etc/apache2/sites-available/000-default-le-ssl.conf` under <VirtualHost *:443>
 ```
     ProxyPreserveHost On
     SSLProxyEngine On
