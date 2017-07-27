@@ -121,3 +121,8 @@ Under <VirtualHost *:443>
     ProxyPassReverse / http://127.0.0.1:8080/
     
 ```
+If you want to disable admin console from the world, you can set the `ProxyPass` parameter as follows:
+```
+    ProxyPass /auth/realms/ http://127.0.0.1:8080/
+```
+You can still access the admin console from http://127.0.0.1:8080/ on the server
