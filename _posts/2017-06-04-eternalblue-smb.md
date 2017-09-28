@@ -15,9 +15,6 @@ This post consists of the following parts.
 
 1. Understanding the exploit method
 2. Using the exploit and popping under the hood of a vulnerable machine to see what happens
-3. Reversing the problem and looking at the code
-
-Number 3 is included in the Part 2 of this post (which I will post later) detailing the vulnerability in the actual code.
 
 # Understanding the exploit method
 
