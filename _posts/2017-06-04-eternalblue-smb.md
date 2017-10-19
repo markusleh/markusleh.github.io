@@ -2,7 +2,7 @@
 layout: post
 title:  Memory analysis of Eternalblue
 category: memory-forensics
-description: Techinal and memory forensics dive into the Eternalblue exploit that uses SMB v1 vulnerability.
+description: Technical and memory forensics dive into the Eternalblue exploit that uses SMB v1 vulnerability.
 picture: /assets/img/eternal/eternal.png
 excerpt: Before Microsoft patching it, SMB version 1 was vulnerable to a buffer overflow attack. The vulnerability is exploitable when a malformed Trans2 request is sent to the server which enables the attacker to overwrite another part of the memory.
 ---
