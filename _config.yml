@@ -9,7 +9,7 @@
 title: Markus
 email: markus @
 description: > # this means to ignore newlines until "baseurl:"
-  Currently a student at Aalto university. Writing about all things digital, tutorials, projects etc.
+  InfoSec consultant and defensive security architect.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://markus.co" # the base hostname & protocol for your site
 twitter_username:
