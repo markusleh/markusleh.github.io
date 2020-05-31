@@ -9,8 +9,8 @@ excerpt: In this post, I am going to explore using Terraform to deploy a Python 
 
 There are several ways to automate deployment of Function apps in Azure. You can:
 1. Use Azure cli and run `func azure functionapp publish <name>`
-2. [Using](https://docs.microsoft.com/en-us/azure/azure-functions/run-functions-from-deployment-package) `WEBSITE_RUN_FROM_PACKAGE`
-3. [Using CI](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-azure-devops?tabs=csharp) [pipelines](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-github-actions?tabs=javascript)
+2. [Use](https://docs.microsoft.com/en-us/azure/azure-functions/run-functions-from-deployment-package) `WEBSITE_RUN_FROM_PACKAGE`
+3. [Use CI](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-azure-devops?tabs=csharp) [pipelines](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-github-actions?tabs=javascript)
 4. Perform a ZIP deployment
 
 In this post, I am going to explore using method number 4 to deploy a Python 3.8 application running in Linux as Azure Function app. [Some](https://markheath.net/post/run-from-package) people had successfully been able to use the `WEBSITE_RUN_FROM_PACKAGE` method in other languages and frameworks, but after several hours of banging my head against the wall as there are no error logs available anywhere when things don't work, I switched to the ZIP deployment method as it seems to be more documented and I can at least try it locally before automating the same work using Terraform.
@@ -54,12 +54,15 @@ local.settings.json
 Variables
 ```
 variable "zip_path" {
+  # Change as needed
   default = "/Users/markus/Projects/func.zip"
 }
 variable "func_path" {
+  # Change as needed
   default = "/Users/markus/Projects/FuncDir"
 }
 variable "location" {
+  # Change as needed
   default = "North Europe"
 }
 ```
@@ -100,14 +103,6 @@ resource "random_string" "app_service_plan_name" {
 resource "random_string" "app_name" {
   length  = 16
   special = false
-}
-
-resource "azurerm_storage_account" "storage" {
-  name                     = random_string.storage_name.result
-  resource_group_name      = azurerm_resource_group.rg1.name
-  location                 = azurerm_resource_group.rg1.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
 }
 
 resource "azurerm_storage_container" "storage_container" {
@@ -191,6 +186,6 @@ Couple of things to note here:
 
 ### Future work
 
-- Terraform Azure provider or Azure itself should have a nice native way to deploy a function app.
+- Terraform Azure provider or Azure itself should have a nice native way to deploy a function app directly from a directory.
 - Microsoft should more clearly document what are the requirements to run `WEBSITE_RUN_FROM_PACKAGE` and logs when the deployment fails. There is currently only a cryptic error message when navigating to the function --> App files.
-- Terraofrm should fix couple of things that prevent Function app from generating correctly when using Linux app.
+- Terraform should fix couple of things that prevent Function app from generating correctly when using Linux app.
