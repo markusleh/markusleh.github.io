@@ -6,6 +6,9 @@ description: How to configure Keycloak behind Apache2
 excerpt: This post consists of configuring Keycloak behind Apache reverse proxy + Let's encrypt
 ---
 
+Note: This post is very old. There is an updated version of this guide using Docker [here]({% post_url 2022-05-23-keycloak-2022 %})
+ 
+
 This post consists of the following parts:
 
 1. Downloading and configuring Keycloak (IdP)
